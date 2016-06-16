@@ -56,5 +56,11 @@ describe('Controller tests', () => {
       gameCtrl.action();
       expect(gameCtrl.gameLog.length).toBe(5);
     });
+
+    it('should take an input and give a corresponding response via the game log', () => {
+      gameCtrl.input = 'call mom';
+      gameCtrl.action();
+      expect(gameCtrl.gameLog[0]).toBe('You try to express your situation to your mother, but she thinks that you\'ve had too much to drink. Your dependence on your mother annoys the monster and he impales you with a talon.');
+    });
   });
 });
