@@ -23,5 +23,16 @@ gulp.task('staticcssfiles:dev', function() {
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build:dev', ['staticfiles:dev','staticcssfiles:dev', 'webpack:dev']);
+gulp.task('bundle:test', () => {
+  return gulp.src(__dirname + '/test/*-test.js')
+  .pipe(webpack({
+    output: {
+      filename: 'test-bundle.js'
+    }
+  }))
+  .pipe(gulp.dest(__dirname + '/test'));
+});
+
+gulp.task('build:dev', ['staticfiles:dev','staticcssfiles:dev', 'webpack:dev', 'bundle:test']);
+
 gulp.task('default', ['build:dev']);
