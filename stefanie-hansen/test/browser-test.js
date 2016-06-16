@@ -132,5 +132,10 @@ describe('Controller tests', () => {
       expect(gameCtrl.gameLog[0]).toBe('You walk into the adjacent room.');
       expect(gameCtrl.location).toBe('weaponRoom');
     });
+
+    it('should give a game introduction upon load', () => {
+      gameCtrl.gameStart();
+      expect(gameCtrl.gameLog[0]).toBe('You wake up and find yourself in a windowless room with a fearsome Jabberwocky. He is eyeing you with a mixture of curiosity and hunger. There is a door to your left. What shall you do? (Type ? at any time to see your options)');
+    });
   });
 });
